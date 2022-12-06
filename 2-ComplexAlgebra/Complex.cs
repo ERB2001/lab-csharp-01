@@ -1,3 +1,5 @@
+using System;
+
 namespace ComplexAlgebra
 {
     /// <summary>
@@ -18,5 +20,46 @@ namespace ComplexAlgebra
     public class Complex
     {
         // TODO: fill this class\
+       /* private readonly int _imaginaryPart; 
+        private readonly int _realPart;*/
+        public double Imaginary { get; }
+
+        public double Real { get;}
+
+        public double Modulus { get; set; }
+
+        public double Phase { get; set; }
+
+        public Complex(double realPart, double imaginaryPart) 
+        {
+            Real = realPart;
+            Imaginary = imaginaryPart;
+            Modulus = Math.Sqrt(Math.Pow(Real, 2) + Math.Pow(Imaginary, 2));
+            Phase = Math.Atan2(Real, Imaginary);
+        }
+        
+        public bool Equals(Complex compareNumber)
+         {
+            if( Real == compareNumber.Real && Imaginary == compareNumber.Imaginary) {
+                return true;
+            } else {
+                return false;
+            }  
+        }
+
+        public Complex Complement() {
+            return new Complex(Real,(-1)*Imaginary);
+        }
+
+        public Complex Plus(Complex addNumber) 
+        {
+             return new Complex(Real+addNumber.Real, Imaginary);
+        }
+        public Complex Minus(Complex subNumber) 
+        {
+            return new Complex(Real - subNumber.Real, Imaginary - subNumber.Imaginary);
+        }
+
+        public string ToString() => $"Complex Number {this.GetType().Name}: Real = {Real} Imaginary = {Imaginary}";
     }
 }
