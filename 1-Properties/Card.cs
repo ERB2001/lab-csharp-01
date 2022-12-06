@@ -7,21 +7,35 @@ namespace Properties
     /// </summary>
     public class Card
     {
-        private readonly string seed;
-        private readonly string name;
-        private readonly int ordinal;
+
+        /*private readonly string _seed;
+        private readonly string _name;
+        private readonly int _ordinal;*/
+
+        public Card(string seed, int ordinal) 
+        {
+            this.Seed = seed;
+    this.Ordinal = ordinal;
+   
+        }
+                public string Seed { get;}// auto - implemented readonly property
+        public string Name { get;}
+        public int Ordinal { get;}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Card"/> class.
         /// </summary>
-        /// <param name="name">the name of the card.</param>
-        /// <param name="seed">the seed of the card.</param>
-        /// <param name="ordinal">the ordinal number of the card.</param>
+        /// <param _name="name">the name of the card.</param>
+        /// <param _name="seed">the seed of the card.</param>
+        /// <param _name="ordinal">the ordinal number of the card.</param>
         public Card(string name, string seed, int ordinal)
         {
-            this.name = name;
-            this.ordinal = ordinal;
-            this.seed = seed;
+            /*_name = name;
+            _ordinal = ordinal;
+            _seed = seed;*/
+            Seed = seed;
+            Name = name;
+            Ordinal = ordinal;
         }
 
         /// <summary>
@@ -33,29 +47,30 @@ namespace Properties
         }
 
         // TODO improve
-        public string GetSeed()
+        /*public string GetSeed()
         {
-            return this.seed;
+            return _seed;
         }
 
         // TODO improve
         public string GetName()
         {
-            return this.name;
+            return _name;
         }
 
         // TODO improve
         public int GetOrdinal()
         {
-            return this.ordinal;
-        }
+            return _ordinal;
+        }*/
 
         /// <inheritdoc cref="object.ToString"/>
-        public override string ToString()
+        /*public override string ToString()
         {
-            // TODO understand string interpolation
+            // TODO understand string interpolation+
             return $"{this.GetType().Name}(Name={this.GetName()}, Seed={this.GetSeed()}, Ordinal={this.GetOrdinal()})";
-        }
+        }*/
+        public override string ToString() =>$"{this.GetType().Name}(Name={Name}, Seed={Seed}, Ordinal={Ordinal})";
 
         // TODO generate Equals(object obj)
 
